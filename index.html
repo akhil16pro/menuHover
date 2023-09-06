@@ -24,7 +24,43 @@
   </head>
   <body>
     <main>
-      <menu>
+      <menu class="v1">
+        <menu-item>
+          <a href="#" class="link">
+            <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
+            <div class="text">Home</div>
+          </a>
+        </menu-item>
+        <menu-item>
+          <a href="#" class="link">
+            <div class="icon"><ion-icon name="person-outline"></ion-icon></div>
+            <div class="text">Profile</div>
+          </a>
+        </menu-item>
+        <menu-item>
+          <a href="#" class="link">
+            <div class="icon"><ion-icon name="mail-outline"></ion-icon></div>
+            <div class="text">Message</div>
+          </a>
+        </menu-item>
+        <menu-item>
+          <a href="#" class="link">
+            <div class="icon"><ion-icon name="camera-outline"></ion-icon></div>
+            <div class="text">Camera</div>
+          </a>
+        </menu-item>
+        <menu-item>
+          <a href="#" class="link">
+            <div class="icon">
+              <ion-icon name="settings-outline"></ion-icon>
+            </div>
+            <div class="text">Setting</div>
+          </a>
+        </menu-item>
+
+        <slide></slide>
+      </menu>
+      <menu class="v2">
         <menu-item>
           <a href="#" class="link">
             <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
@@ -72,8 +108,8 @@
   ></script>
 
   <script>
-    const menu = document.querySelector('menu')
-    const navLinks = document.querySelectorAll('.link')
+    const menu = document.querySelector('.v1')
+    const navLinks = document.querySelectorAll('.v1 .link')
     const body = document.body
 
     navLinks.forEach((nav) => {
@@ -95,10 +131,38 @@
       })
     })
 
-    document.querySelector('.link').dispatchEvent(new Event('click'))
+    menu.querySelector('.link').dispatchEvent(new Event('click'))
 
     window.addEventListener('resize', () => {
-      document.querySelector('.link').dispatchEvent(new Event('click'))
+      menu.querySelector('.link').dispatchEvent(new Event('click'))
+    })
+
+    const menu2 = document.querySelector('.v2')
+    const navLinks2 = document.querySelectorAll('.v2 .link')
+
+    navLinks2.forEach((nav) => {
+      nav.addEventListener('click', () => {
+        navLinks2.forEach((el) => {
+          el.classList.remove('active')
+          nav.classList.add('active')
+        })
+        const menuBB = menu2.getBoundingClientRect()
+        const iconBB = nav.querySelector('.icon').getBoundingClientRect()
+
+        menu2.style.setProperty('--dote-w', `${iconBB.width}px`)
+        menu2.style.setProperty('--dote-h', `${iconBB.height}px`)
+        menu2.style.setProperty(
+          '--dote-l',
+          `${iconBB.left - menuBB.left + iconBB.width / 2}px`
+        )
+        menu.style.setProperty('--dote-t', `${iconBB.top - menuBB.top}px`)
+      })
+    })
+
+    menu2.querySelector('.link').dispatchEvent(new Event('click'))
+
+    window.addEventListener('resize', () => {
+      menu2.querySelector('.link').dispatchEvent(new Event('click'))
     })
   </script>
 </html>

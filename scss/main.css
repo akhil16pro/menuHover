@@ -14,10 +14,22 @@ body {
 main {
   overflow: hidden;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: 20vh;
+}
+@media only screen and (max-width: 1024px) {
+  main {
+    gap: 10vh;
+  }
+}
+@media only screen and (max-width: 767px) {
+  main {
+    gap: 15vh;
+  }
 }
 
 a {
@@ -53,24 +65,17 @@ menu {
   }
 }
 
-slide {
-  position: absolute;
-  height: calc(var(--dote-h) + 0.5rem);
-  aspect-ratio: 2/2;
-  background-color: var(--brandColor);
-  border-radius: 50%;
+.v1 slide {
   left: var(--dote-l);
-  transform: translateX(-50%);
-  top: calc((50% - 1rem + 0.25rem + 6px) * -1);
-  transition: all 0.4s ease-in-out;
   border: 6px solid var(--bg);
+  top: calc((50% - 1rem + 0.25rem + 6px) * -1);
 }
 @media only screen and (max-width: 980px) {
-  slide {
+  .v1 slide {
     border-width: 5px;
   }
 }
-slide:after {
+.v1 slide:after {
   content: "";
   position: absolute;
   left: -32px;
@@ -82,19 +87,19 @@ slide:after {
   border-top-right-radius: 20px;
 }
 @media only screen and (min-width: 1680px) {
-  slide:after {
+  .v1 slide:after {
     border-top-right-radius: 25px;
   }
 }
 @media only screen and (max-width: 980px) {
-  slide:after {
+  .v1 slide:after {
     height: 20px;
     width: 20px;
     box-shadow: 1px -10px 0 var(--bg);
     left: -20px;
   }
 }
-slide::before {
+.v1 slide::before {
   content: "";
   position: absolute;
   right: -32px;
@@ -106,17 +111,125 @@ slide::before {
   border-top-left-radius: 20px;
 }
 @media only screen and (min-width: 1680px) {
-  slide::before {
+  .v1 slide::before {
     border-top-left-radius: 25px;
   }
 }
 @media only screen and (max-width: 980px) {
-  slide::before {
+  .v1 slide::before {
     height: 20px;
     width: 20px;
     box-shadow: -1px -10px 0 var(--bg);
     right: -20px;
   }
+}
+
+.v2 slide {
+  top: calc((50% - 1rem + 0.25rem) * -1);
+  background-color: var(--white);
+}
+.v2 slide:after {
+  content: "";
+  position: absolute;
+  left: -24px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg);
+  top: 50%;
+  transform: translateY(-100%);
+  border-bottom-right-radius: 25px;
+  box-shadow: 1px 15px 0 var(--white);
+}
+@media only screen and (max-width: 980px) {
+  .v2 slide:after {
+    border-bottom-right-radius: 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v2 slide:after {
+    border-bottom-right-radius: 15px;
+    width: 8px;
+    height: 8px;
+    left: -7px;
+    box-shadow: 1px 4px 0 var(--white);
+  }
+}
+.v2 slide::before {
+  content: "";
+  position: absolute;
+  right: -24px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--bg);
+  top: 50%;
+  transform: translateY(-100%);
+  border-bottom-left-radius: 25px;
+  box-shadow: -1px 15px 0 var(--white);
+}
+@media only screen and (max-width: 980px) {
+  .v2 slide::before {
+    border-bottom-left-radius: 15px;
+    width: 20px;
+    height: 20px;
+    right: -15px;
+    box-shadow: -1px 10px 0 var(--white);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v2 slide::before {
+    border-bottom-left-radius: 15px;
+    width: 8px;
+    height: 8px;
+    right: -7px;
+    box-shadow: -1px 4px 0 var(--white);
+  }
+}
+.v2 menu-item .link.active .icon {
+  color: var(--bg);
+}
+@media only screen and (max-width: 767px) {
+  .v2 menu-item .link.active .icon {
+    transform: translateY(calc((50% + 0.8rem) * -1));
+  }
+}
+.v2 menu-item .text {
+  background-color: var(--brandColor);
+  color: var(--white);
+  width: auto;
+  padding: 0.3rem 0.8rem;
+  line-height: 1;
+  border-radius: 1.5rem;
+  left: 50%;
+  font-size: 1vw;
+  transform: translateX(-50%) translateY(-50%);
+}
+@media only screen and (min-width: 1680px) {
+  .v2 menu-item .text {
+    font-size: 0.83vw;
+    padding: 0.4rem 1rem;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .v2 menu-item .text {
+    font-size: 0.85rem;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v2 menu-item .text {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.5rem;
+  }
+}
+
+slide {
+  position: absolute;
+  left: var(--dote-l);
+  height: calc(var(--dote-h) + 0.5rem);
+  transform: translateX(-50%);
+  aspect-ratio: 2/2;
+  background-color: var(--brandColor);
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
 }
 
 menu-item {
