@@ -108,13 +108,14 @@
   ></script>
 
   <script>
-    const menu = document.querySelector('.v1')
-    const navLinks = document.querySelectorAll('.v1 .link')
+    const navLinks = document.querySelectorAll('.link')
     const body = document.body
 
     navLinks.forEach((nav) => {
       nav.addEventListener('click', () => {
-        navLinks.forEach((el) => {
+        const menu = nav.closest('menu'),
+          menuItem = menu.querySelectorAll('.link')
+        menuItem.forEach((el) => {
           el.classList.remove('active')
           nav.classList.add('active')
         })
@@ -131,38 +132,14 @@
       })
     })
 
-    menu.querySelector('.link').dispatchEvent(new Event('click'))
+    const menus = document.querySelectorAll('menu')
 
-    window.addEventListener('resize', () => {
+    menus.forEach((menu) => {
       menu.querySelector('.link').dispatchEvent(new Event('click'))
-    })
 
-    const menu2 = document.querySelector('.v2')
-    const navLinks2 = document.querySelectorAll('.v2 .link')
-
-    navLinks2.forEach((nav) => {
-      nav.addEventListener('click', () => {
-        navLinks2.forEach((el) => {
-          el.classList.remove('active')
-          nav.classList.add('active')
-        })
-        const menuBB = menu2.getBoundingClientRect()
-        const iconBB = nav.querySelector('.icon').getBoundingClientRect()
-
-        menu2.style.setProperty('--dote-w', `${iconBB.width}px`)
-        menu2.style.setProperty('--dote-h', `${iconBB.height}px`)
-        menu2.style.setProperty(
-          '--dote-l',
-          `${iconBB.left - menuBB.left + iconBB.width / 2}px`
-        )
-        menu.style.setProperty('--dote-t', `${iconBB.top - menuBB.top}px`)
+      window.addEventListener('resize', () => {
+        menu.querySelector('.link').dispatchEvent(new Event('click'))
       })
-    })
-
-    menu2.querySelector('.link').dispatchEvent(new Event('click'))
-
-    window.addEventListener('resize', () => {
-      menu2.querySelector('.link').dispatchEvent(new Event('click'))
     })
   </script>
 </html>
