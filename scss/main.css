@@ -2,6 +2,7 @@
   --white: #fff;
   --bg: #000;
   --brandColor: #e55426;
+  --barndColor2: #03a9f4;
   --scrollColor: #656565;
 }
 
@@ -376,6 +377,42 @@ menu-item .text {
 .v3.active menu-item {
   transform: rotate(calc(45deg * var(--i)));
 }
+.v3 .circleLink {
+  width: 3.5vw;
+  aspect-ratio: 2/2;
+  font-size: 1.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(calc(-45deg * var(--i)));
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
+}
+@media only screen and (max-width: 1024px) {
+  .v3 .circleLink {
+    font-size: 2.2vw;
+    width: 5.5vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v3 .circleLink {
+    font-size: 3vw;
+    width: 7vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v3 .circleLink {
+    font-size: 6vw;
+    width: 13vw;
+  }
+}
+.v3 .circleLink:hover {
+  background-color: var(--barndColor2);
+  color: var(--white);
+  box-shadow: 0 0 10px rgba(3, 169, 244, 0.9);
+  transform: rotate(calc(-45deg * var(--i))) scale(1.1);
+}
 
 toggle {
   position: absolute;
@@ -396,7 +433,6 @@ toggle {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
 }
 @media only screen and (max-width: 1024px) {
   toggle {
@@ -432,39 +468,209 @@ toggle ion-icon {
   transform: rotate(315deg);
 }
 
-.circleLink {
-  width: 3.5vw;
+.v4 {
+  width: 30vw;
   aspect-ratio: 2/2;
-  font-size: 1.8vw;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+@media only screen and (max-width: 1024px) {
+  .v4 {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v4 {
+    width: 75vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v4 {
+    width: 90vw;
+  }
+}
+.v4::before {
+  content: "";
+  position: absolute;
+  left: 2.5vw;
+  top: 2.5vw;
+  width: calc(100% - 5vw);
+  height: calc(100% - 5vw);
+  background-color: var(--white);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out 0.1s;
+}
+@media only screen and (max-width: 1024px) {
+  .v4::before {
+    left: 4vw;
+    top: 4vw;
+    width: calc(100% - 8vw);
+    height: calc(100% - 8vw);
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v4::before {
+    left: 5vw;
+    top: 5vw;
+    width: calc(100% - 10vw);
+    height: calc(100% - 10vw);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v4::before {
+    left: 6vw;
+    top: 6vw;
+    width: calc(100% - 12vw);
+    height: calc(100% - 12vw);
+  }
+}
+.v4 menu-item {
+  left: 2.5vw;
+  position: absolute;
+  transform-origin: 12.5vw;
+  transition: all 0.5s ease-in-out;
+  transform: rotate(calc(45deg * var(--i))) translateX(13.25vw);
+}
+@media only screen and (max-width: 1024px) {
+  .v4 menu-item {
+    left: 4vw;
+    transform-origin: 21vw;
+    transform: rotate(calc(45deg * var(--i))) translateX(23.25vw);
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v4 menu-item {
+    left: 5vw;
+    transform-origin: 32.5vw;
+    transform: rotate(0deg) translateX(35vw);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v4 menu-item {
+    left: 6vw;
+    transform-origin: 39vw;
+    transform: rotate(0deg) translateX(39vw);
+  }
+}
+.v4 .circleLink {
+  width: 5vw;
+  font-size: 2.5vw;
+  aspect-ratio: 2/2;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: rotate(calc(-45deg * var(--i)));
-  background-color: var(--white);
-  border-radius: 50%;
   transition: all 0.4s ease-in-out;
 }
 @media only screen and (max-width: 1024px) {
-  .circleLink {
-    font-size: 2.2vw;
-    width: 5.5vw;
+  .v4 .circleLink {
+    width: 8vw;
+    font-size: 3.5vw;
   }
 }
 @media only screen and (max-width: 980px) {
-  .circleLink {
-    font-size: 3vw;
-    width: 7vw;
+  .v4 .circleLink {
+    width: 10vw;
+    font-size: 5vw;
   }
 }
 @media only screen and (max-width: 767px) {
-  .circleLink {
+  .v4 .circleLink {
+    width: 12vw;
     font-size: 6vw;
-    width: 13vw;
   }
 }
-.circleLink:hover {
-  background-color: #03a9f4;
+.v4 toggle {
+  color: var(--bg);
+  box-shadow: none;
+}
+.v4 toggle:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+}
+.v4 toggle ion-icon {
+  transition: all 0.4s ease-in-out;
+}
+.v4 slide {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all 0.4s ease-in-out 0.1s;
+}
+.v4 slide:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: calc(5vw - 8px);
+  aspect-ratio: 2/2;
+  border-radius: 50%;
+  background-color: var(--brandColor);
+  transform-origin: 15vw;
+  transform: rotate(calc(45deg * var(--ac)));
+  transition: all 0.5s ease-in-out;
+  border: 4px solid var(--bg);
+}
+@media only screen and (max-width: 1024px) {
+  .v4 slide:after {
+    transform-origin: 25vw;
+    width: calc(8vw - 8px);
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v4 slide:after {
+    transform-origin: 37.5vw;
+    width: calc(10vw - 8px);
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v4 slide:after {
+    transform-origin: 45vw;
+    width: calc(12vw - 8px);
+  }
+}
+.v4.active::before {
+  transform: scale(1);
+  transition-delay: 0s;
+}
+.v4.active menu-item {
+  transform: rotate(calc(45deg * var(--i))) translateX(0);
+}
+.v4.active menu-item.active {
+  left: 0;
+  transform-origin: 15vw;
+}
+@media only screen and (max-width: 1024px) {
+  .v4.active menu-item.active {
+    transform-origin: 25vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v4.active menu-item.active {
+    transform-origin: 37.5vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v4.active menu-item.active {
+    transform-origin: 45vw;
+  }
+}
+.v4.active menu-item.active .circleLink {
   color: var(--white);
-  box-shadow: 0 0 10px rgba(3, 169, 244, 0.9);
-  transform: rotate(calc(-45deg * var(--i))) scale(1.1);
+}
+.v4.active toggle {
+  color: var(--white);
+  background-color: var(--bg);
+}
+.v4.active:not(.menuNotOpen) slide {
+  transform: scale(1);
+  transition-delay: 0s;
 }/*# sourceMappingURL=main.css.map */

@@ -139,6 +139,51 @@
           ></a>
         </menu-item>
       </menu>
+
+      <menu class="v4">
+        <toggle><ion-icon name="add-outline"></ion-icon></toggle>
+        <menu-item style="--i: 0">
+          <a href="#" class="circleLink"
+            ><ion-icon name="home-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 1">
+          <a href="#" class="circleLink"
+            ><ion-icon name="person-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 2">
+          <a href="#" class="circleLink"
+            ><ion-icon name="mail-unread-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 3">
+          <a href="#" class="circleLink"
+            ><ion-icon name="camera-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 4">
+          <a href="#" class="circleLink"
+            ><ion-icon name="alarm-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 5">
+          <a href="#" class="circleLink"
+            ><ion-icon name="notifications-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 6">
+          <a href="#" class="circleLink"
+            ><ion-icon name="shield-checkmark-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 7">
+          <a href="#" class="circleLink"
+            ><ion-icon name="settings-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <slide></slide>
+      </menu>
     </main>
   </body>
   <script
@@ -192,11 +237,37 @@
 
     // Menu version 3
 
-    const toggleBtn = document.querySelector('toggle'),
-      menu3 = document.querySelector('.v3')
+    const menu3 = document.querySelector('.v3'),
+      toggleBtn = menu3.querySelector('toggle')
 
     toggleBtn.addEventListener('click', () => {
       menu3.classList.toggle('active')
+    })
+
+    // Menu version 4
+    const menu4 = document.querySelector('.v4'),
+      toggleBtn4 = menu4.querySelector('toggle'),
+      menuLinks = menu4.querySelectorAll('.circleLink')
+
+    toggleBtn4.addEventListener('click', () => {
+      menu4.classList.toggle('active')
+      menu4.classList.add('menuNotOpen')
+
+      menuLinks.forEach((ln) => {
+        ln.parentElement.classList.remove('active')
+      })
+    })
+
+    menuLinks.forEach((link, i) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault()
+        menu4.classList.remove('menuNotOpen')
+        menuLinks.forEach((ln) => {
+          ln.parentElement.classList.remove('active')
+        })
+        link.parentElement.classList.add('active')
+        menu4.style.setProperty('--ac', i)
+      })
     })
   </script>
 </html>
