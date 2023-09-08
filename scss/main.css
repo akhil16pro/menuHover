@@ -354,33 +354,23 @@ menu-item .text {
   transition: all 0.5s ease-in-out;
   transition-delay: calc(var(--i) * 0.05s);
   transform: rotate(0deg) translateX(13.25vw);
-  width: 3.5vw;
-  aspect-ratio: 2/2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--white);
-  border-radius: 50%;
 }
 @media only screen and (max-width: 1024px) {
   .v3 menu-item {
     transform-origin: 25vw;
     transform: rotate(0deg) translateX(22.25vw);
-    width: 5.5vw;
   }
 }
 @media only screen and (max-width: 980px) {
   .v3 menu-item {
     transform-origin: 37.5vw;
     transform: rotate(0deg) translateX(34vw);
-    width: 7vw;
   }
 }
 @media only screen and (max-width: 767px) {
   .v3 menu-item {
     transform-origin: 45vw;
     transform: rotate(0deg) translateX(38.5vw);
-    width: 13vw;
   }
 }
 .v3.active menu-item {
@@ -435,7 +425,7 @@ toggle ion-icon {
 
 .active toggle {
   background-color: var(--brandColor);
-  box-shadow: 0 2px 8px rgba(229, 84, 38, 0.5);
+  box-shadow: 0 0px 15px rgba(229, 84, 38, 0.5);
   color: var(--white);
 }
 .active toggle ion-icon {
@@ -443,24 +433,38 @@ toggle ion-icon {
 }
 
 .circleLink {
+  width: 3.5vw;
+  aspect-ratio: 2/2;
   font-size: 1.8vw;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: rotate(calc(-45deg * var(--i)));
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
 }
 @media only screen and (max-width: 1024px) {
   .circleLink {
     font-size: 2.2vw;
+    width: 5.5vw;
   }
 }
 @media only screen and (max-width: 980px) {
   .circleLink {
     font-size: 3vw;
+    width: 7vw;
   }
 }
 @media only screen and (max-width: 767px) {
   .circleLink {
     font-size: 6vw;
+    width: 13vw;
   }
+}
+.circleLink:hover {
+  background-color: #03a9f4;
+  color: var(--white);
+  box-shadow: 0 0 10px rgba(3, 169, 244, 0.9);
+  transform: rotate(calc(-45deg * var(--i))) scale(1.1);
 }/*# sourceMappingURL=main.css.map */

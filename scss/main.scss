@@ -331,27 +331,18 @@ menu-item {
     transition: all 0.5s ease-in-out;
     transition-delay: calc(var(--i) * 0.05s);
     transform: rotate(0deg) translateX(calc(15vw - 1.75vw));
-    width: 3.5vw;
-    aspect-ratio: 2/2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--white);
-    border-radius: 50%;
+
     @media only screen and (max-width: 1024px) {
       transform-origin: 25vw;
       transform: rotate(0deg) translateX(calc(25vw - 2.75vw));
-      width: 5.5vw;
     }
     @media only screen and (max-width: 980px) {
       transform-origin: 37.5vw;
       transform: rotate(0deg) translateX(calc(37.5vw - 3.5vw));
-      width: 7vw;
     }
     @media only screen and (max-width: 767px) {
       transform-origin: 45vw;
       transform: rotate(0deg) translateX(calc(45vw - 6.5vw));
-      width: 13vw;
     }
   }
 
@@ -405,7 +396,7 @@ toggle {
 .active {
   toggle {
     background-color: var(--brandColor);
-    box-shadow: 0 2px 8px rgba(#e55426, 0.5);
+    box-shadow: 0 0px 15px rgba(#e55426, 0.5);
     color: var(--white);
     ion-icon {
       transform: rotate(315deg);
@@ -414,18 +405,34 @@ toggle {
 }
 
 .circleLink {
+  width: 3.5vw;
+  aspect-ratio: 2/2;
+
   font-size: 1.8vw;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: rotate(calc(360deg / -8 * var(--i)));
+  background-color: var(--white);
+  border-radius: 50%;
+  transition: all 0.4s ease-in-out;
   @media only screen and (max-width: 1024px) {
     font-size: 2.2vw;
+    width: 5.5vw;
   }
   @media only screen and (max-width: 980px) {
     font-size: 3vw;
+    width: 7vw;
   }
   @media only screen and (max-width: 767px) {
     font-size: 6vw;
+    width: 13vw;
+  }
+
+  &:hover {
+    background-color: #03a9f4;
+    color: var(--white);
+    box-shadow: 0 0 10px rgba(#03a9f4, 0.9);
+    transform: rotate(calc(360deg / -8 * var(--i))) scale(1.1);
   }
 }
