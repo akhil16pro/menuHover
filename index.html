@@ -96,6 +96,49 @@
 
         <slide></slide>
       </menu>
+      <menu class="v3">
+        <toggle><ion-icon name="add-outline"></ion-icon></toggle>
+        <menu-item style="--i: 0">
+          <a href="#" class="circleLink"
+            ><ion-icon name="home-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 1">
+          <a href="#" class="circleLink"
+            ><ion-icon name="person-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 2">
+          <a href="#" class="circleLink"
+            ><ion-icon name="mail-unread-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 3">
+          <a href="#" class="circleLink"
+            ><ion-icon name="camera-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 4">
+          <a href="#" class="circleLink"
+            ><ion-icon name="alarm-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 5">
+          <a href="#" class="circleLink"
+            ><ion-icon name="notifications-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 6">
+          <a href="#" class="circleLink"
+            ><ion-icon name="shield-checkmark-outline"></ion-icon
+          ></a>
+        </menu-item>
+        <menu-item style="--i: 7">
+          <a href="#" class="circleLink"
+            ><ion-icon name="settings-outline"></ion-icon
+          ></a>
+        </menu-item>
+      </menu>
     </main>
   </body>
   <script
@@ -112,7 +155,8 @@
     const body = document.body
 
     navLinks.forEach((nav) => {
-      nav.addEventListener('click', () => {
+      nav.addEventListener('click', (e) => {
+        e.preventDefault()
         const menu = nav.closest('menu'),
           menuItem = menu.querySelectorAll('.link')
         menuItem.forEach((el) => {
@@ -135,11 +179,24 @@
     const menus = document.querySelectorAll('menu')
 
     menus.forEach((menu) => {
-      menu.querySelector('.link').dispatchEvent(new Event('click'))
+      const link = menu.querySelector('.link')
 
-      window.addEventListener('resize', () => {
-        menu.querySelector('.link').dispatchEvent(new Event('click'))
-      })
+      if (link) {
+        link.dispatchEvent(new Event('click'))
+
+        window.addEventListener('resize', () => {
+          link.dispatchEvent(new Event('click'))
+        })
+      }
+    })
+
+    // Menu version 3
+
+    const toggleBtn = document.querySelector('toggle'),
+      menu3 = document.querySelector('.v3')
+
+    toggleBtn.addEventListener('click', () => {
+      menu3.classList.toggle('active')
     })
   </script>
 </html>

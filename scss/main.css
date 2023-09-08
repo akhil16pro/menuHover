@@ -2,6 +2,21 @@
   --white: #fff;
   --bg: #000;
   --brandColor: #e55426;
+  --scrollColor: #656565;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--white);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollColor);
 }
 
 body {
@@ -20,15 +35,18 @@ main {
   flex-direction: column;
   justify-content: center;
   gap: 20vh;
+  padding: 20vh 0;
 }
 @media only screen and (max-width: 1024px) {
   main {
     gap: 10vh;
+    padding: 10vh 0;
   }
 }
 @media only screen and (max-width: 767px) {
   main {
     gap: 15vh;
+    padding: 15vh 0;
   }
 }
 
@@ -277,7 +295,7 @@ menu-item .icon {
 }
 @media only screen and (max-width: 767px) {
   menu-item .icon {
-    font-size: 6.5vw;
+    font-size: 5.2vw;
   }
 }
 menu-item .text {
@@ -303,5 +321,146 @@ menu-item .text {
 @media only screen and (max-width: 767px) {
   menu-item .text {
     font-size: 0.85rem;
+  }
+}
+
+.v3 {
+  width: 30vw;
+  aspect-ratio: 2/2;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
+@media only screen and (max-width: 1024px) {
+  .v3 {
+    width: 50vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v3 {
+    width: 75vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v3 {
+    width: 90vw;
+  }
+}
+.v3 menu-item {
+  left: 0;
+  position: absolute;
+  transform-origin: 15vw;
+  transition: all 0.5s ease-in-out;
+  transition-delay: calc(var(--i) * 0.05s);
+  transform: rotate(0deg) translateX(13.25vw);
+  width: 3.5vw;
+  aspect-ratio: 2/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  border-radius: 50%;
+}
+@media only screen and (max-width: 1024px) {
+  .v3 menu-item {
+    transform-origin: 25vw;
+    transform: rotate(0deg) translateX(22.25vw);
+    width: 5.5vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .v3 menu-item {
+    transform-origin: 37.5vw;
+    transform: rotate(0deg) translateX(34vw);
+    width: 7vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .v3 menu-item {
+    transform-origin: 45vw;
+    transform: rotate(0deg) translateX(38.5vw);
+    width: 13vw;
+  }
+}
+.v3.active menu-item {
+  transform: rotate(calc(45deg * var(--i)));
+}
+
+toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 4vw;
+  aspect-ratio: 2/2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  z-index: 10;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  font-size: 2vw;
+  background-color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+@media only screen and (max-width: 1024px) {
+  toggle {
+    width: 6vw;
+    font-size: 3vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  toggle {
+    width: 8vw;
+    font-size: 4vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  toggle {
+    font-size: 6.5vw;
+    width: 13vw;
+  }
+}
+toggle:hover {
+  transform: translateX(-50%) translateY(-50%) scale(1.1);
+}
+toggle ion-icon {
+  transition: all 0.4s ease-in-out;
+}
+
+.active toggle {
+  background-color: var(--brandColor);
+  box-shadow: 0 2px 8px rgba(229, 84, 38, 0.5);
+  color: var(--white);
+}
+.active toggle ion-icon {
+  transform: rotate(315deg);
+}
+
+.circleLink {
+  font-size: 1.8vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(calc(-45deg * var(--i)));
+}
+@media only screen and (max-width: 1024px) {
+  .circleLink {
+    font-size: 2.2vw;
+  }
+}
+@media only screen and (max-width: 980px) {
+  .circleLink {
+    font-size: 3vw;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .circleLink {
+    font-size: 6vw;
   }
 }/*# sourceMappingURL=main.css.map */
